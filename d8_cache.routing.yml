@@ -1,0 +1,63 @@
+d8_cache.default_controller_cache:
+  path: '/d8_cache/cache'
+  defaults:
+    _controller: '\Drupal\d8_cache\Controller\DefaultController::cachePage'
+    _title: 'Cache Example'
+  requirements:
+    _permission: 'access content'
+
+d8_cache.max_age:
+  path: '/d8_cache/max-age'
+  defaults:
+    _controller: '\Drupal\d8_cache\Controller\DefaultController::cacheMaxAge'
+    _title: 'Cache Max age example'
+  requirements:
+    _permission: 'access content'
+
+d8_cache.max_age_permanent:
+  path: '/d8_cache/max-age-permanent'
+  defaults:
+    _controller: '\Drupal\d8_cache\Controller\DefaultController::cacheMaxAgePermanent'
+    _title: 'Cache Max age example'
+  requirements:
+    _permission: 'access content'
+
+d8_cache.contexts_url:
+  path: '/d8_cache/contexts'
+  defaults:
+    _controller: '\Drupal\d8_cache\Controller\DefaultController::cacheContextsByUrl'
+    _title: 'Cache Contexts'
+  requirements:
+    _permission: 'access content'
+
+d8_cache.contexts_url_param:
+  path: '/d8_cache/contexts-param'
+  defaults:
+    _controller: '\Drupal\d8_cache\Controller\DefaultController::cacheContextsByUrl'
+    _title: 'Cache Contexts'
+  requirements:
+    _permission: 'access content'
+
+d8_cache.tags:
+  path: '/d8_cache/tags'
+  defaults:
+    _controller: '\Drupal\d8_cache\Controller\DefaultController::cacheTags'
+    _title: 'Cache tags'
+  requirements:
+    _permission: 'access content'
+
+d8_cache.tree:
+  path: '/d8_cache/tree'
+  defaults:
+    _controller: '\Drupal\d8_cache\Controller\DefaultController::cacheTree'
+    _title: 'Cache tree'
+  requirements:
+    _permission: 'access content'
+
+d8_cache.tree_keys:
+  path: '/d8_cache/tree-keys'
+  defaults:
+    _controller: '\Drupal\d8_cache\Controller\DefaultController::cacheTreeKeys'
+    _title: 'Cache tree keys'
+  requirements:
+    _permission: 'access content'
