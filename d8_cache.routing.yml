@@ -1,11 +1,3 @@
-d8_cache.default_controller_cache:
-  path: '/d8_cache/cache'
-  defaults:
-    _controller: '\Drupal\d8_cache\Controller\DefaultController::cachePage'
-    _title: 'Cache Example'
-  requirements:
-    _permission: 'access content'
-
 d8_cache.max_age:
   path: '/d8_cache/max-age'
   defaults:
