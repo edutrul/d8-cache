@@ -53,3 +53,11 @@ d8_cache.tree_keys:
     _title: 'Cache tree keys'
   requirements:
     _permission: 'access content'
+
+d8_cache.cache_methods:
+  path: '/d8_cache/methods'
+  defaults:
+    _controller: '\Drupal\d8_cache\Controller\CacheController::cacheMethods'
+    _title: 'Cache tree keys'
+  requirements:
+    _permission: 'access content'
