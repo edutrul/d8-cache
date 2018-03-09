@@ -37,7 +37,7 @@ class FavoriteColorBlock extends BlockBase {
   public function getCacheContexts() {
     return Cache::mergeContexts(
       parent::getCacheContexts(),
-      ['user_favorite_color']
+      ['user_favorite_color', 'invalidate_cache_by_url']
     );
   }
 

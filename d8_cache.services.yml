@@ -4,7 +4,7 @@ services:
     arguments: ['@current_user']
     tags:
       - { name: cache.context }
-  cache_context.:
+  cache_context.invalidate_cache_by_url:
     class: Drupal\d8_cache\CacheContext\InvalidateByUrlCacheContext
     arguments: []
     tags:

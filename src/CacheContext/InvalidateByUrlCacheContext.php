@@ -22,7 +22,7 @@ class InvalidateByUrlCacheContext implements CacheContextInterface {
   * {@inheritdoc}
   */
   public static function getLabel() {
-    drupal_set_message('Lable of cache context');
+    drupal_set_message('Invalidate cache by url.');
   }
 
   /**
@@ -30,6 +30,10 @@ class InvalidateByUrlCacheContext implements CacheContextInterface {
   */
   public function getContext() {
     // Actual logic of context variation will lie here.
+    $invalidate = \Drupal::request()->query->get('invalidate');
+    if ($invalidate === 'true') {
+      return 'invalidated_by_url';
+    }
   }
 
   /**

@@ -18,7 +18,7 @@ class UserFavoriteColorCacheContext implements CacheContextInterface {
    * @var \Drupal\Core\Session\AccountProxyInterface
    */
   protected $currentUser;
-  
+
   public function __construct(AccountProxyInterface $current_user) {
     $this->currentUser = $current_user;
   }
