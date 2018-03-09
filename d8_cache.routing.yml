@@ -58,6 +58,15 @@ d8_cache.cache_methods:
   path: '/d8_cache/methods'
   defaults:
     _controller: '\Drupal\d8_cache\Controller\CacheController::cacheMethods'
-    _title: 'Cache tree keys'
+    _title: 'Cache methods'
   requirements:
     _permission: 'access content'
+
+d8_cache.cache_dependency_object:
+  path: '/d8_cache/dependency'
+  defaults:
+    _controller: '\Drupal\d8_cache\Controller\CacheController::cacheDependencyObject'
+    _title: 'Cache dependency object'
+  requirements:
+    _permission: 'access content'
+

@@ -15,14 +15,19 @@ class CacheController extends ControllerBase {
    * else you have to se use cache->set and cache->get
    */
   public function cacheMethods() {
+    $invalidate = \Drupal::request()->query->get('invalidate');
+    if ($invalidate) {
+      \Drupal::cache()->invalidate('d8_cache_data_operation');
+    }
     if ($cache = \Drupal::cache()->get('d8_cache_data_operation')) {
       $dummyData = $cache->data;
+      $dummyData .= print_r($cache, TRUE);
       kint($dummyData);
     }
     else {
       $dummyData = time();
       // The last parameter is TAGS which have to be added in array format.
-      \Drupal::cache()->set('d8_cache_data_operation', $dummyData, time() + 80, ['user:1']);
+      \Drupal::cache()->set('d8_cache_data_operation', $dummyData, time() + 8, ['user:1']);
     }
     return [
       '#markup' => t('Dummy data @dummyData', ['@dummyData' => $dummyData]),
@@ -35,16 +40,24 @@ class CacheController extends ControllerBase {
     ];
   }
 
-  public function getDummyData() {
-    $dummy = 0;
-    for ($i = 0; $i < 1000; $i++ ) {
-      $dummy++;
-      for ($j = 0; $j < 40000; $j++) {
-        $dummy++;
-      }
-    }
+  /**
+   * Example: addCacheableDependency(render array and config).
+   */
+  public function cacheDependencyObject() {
+    $renderer = \Drupal::service('renderer');
 
-    return $dummy + time();
+    $config = \Drupal::config('system.site');
+
+    $build = [
+      '#markup' => t('Hi, welcome back to @site!', [
+        '@site' => $config->get('name') . print_r($config->getCacheTags(), TRUE),
+      ])
+    ];
+    // Merges cache dependency to render array (when merging it
+    // asks for ->getCacheTags(), ->getContexts(), ->getMaxAge() and does a merge!.
+    $renderer->addCacheableDependency($build, $config);
+
+    return $build;
   }
 
 }
