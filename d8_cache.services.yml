@@ -1,0 +1,11 @@
+services:
+  cache_context.user_favorite_color:
+    class: Drupal\d8_cache\CacheContext\UserFavoriteColorCacheContext
+    arguments: ['@current_user']
+    tags:
+      - { name: cache.context }
+  cache_context.:
+    class: Drupal\d8_cache\CacheContext\InvalidateByUrlCacheContext
+    arguments: []
+    tags:
+      - { name: cache.context }
